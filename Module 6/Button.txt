@@ -1,0 +1,54 @@
+//3 types of button
+// Elevated button, Text button, outline button
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeActivity()
+    );
+  }
+}
+
+//Creating Screen
+class HomeActivity extends StatelessWidget{
+  const HomeActivity({super.key});
+  MySnackBar(message,context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
+
+  @override
+  Widget build(BuildContext context){
+    //creating Custom Style for button then applying style property in elevated button
+    ButtonStyle buttonStyle=ElevatedButton.styleFrom(
+      padding: EdgeInsets.all(25),
+      backgroundColor: Colors.greenAccent,
+      foregroundColor: Colors.black,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(40))
+      )
+    );
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My App"),
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          TextButton(onPressed: (){MySnackBar('I am button',context);},child: Text('Text Button')),
+          ElevatedButton(onPressed: (){MySnackBar('I am E button',context);},child: Text('Elevated Button'), style: buttonStyle,),
+          OutlinedButton(onPressed: (){MySnackBar('I am Outlined button',context);},child: Text('OutLined Button'))
+        ],
+      )
+    );
+  }
+}

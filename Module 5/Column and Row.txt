@@ -1,0 +1,67 @@
+//Column Takes children which means it can use multiple widgets such as Text, Icon etc
+//Column sets widget by series
+//If we want to set widget by side we have to use Row
+//We have to use Row or Column if we want to add multiple elements
+//Column is Y axis and Row is X axis
+//If we want to change column position we have to work with Main axis : mainAxisAlignment: MainAxisAlignment.center
+//We can also change column position Horizontally by using: crossAxisAlignment: CrossAxisAlignment.end
+//We can do the same for Row. The axis are
+///project Structure of Flutter
+//.dart tool : It's dart's own structure
+//.idea : It's the configuration of jet beans
+//android file: In this folder we can do all work related to androids
+//We run program in debug mode. It manages by flutter SDK
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
+        title: Text('Home'),
+        leading: Icon(Icons.home, color: Colors.yellow, size: 32,),
+      ),
+      body: const Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Hello '),
+              Text('World '),
+              Text('How '),
+              Text('Are '),
+              Text('You '),
+            ],
+          )
+        ],
+      )
+      ),
+    );
+  }
+}

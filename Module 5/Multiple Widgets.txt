@@ -1,0 +1,67 @@
+//Column Takes children which means it can use multiple widgets such as Text, Icon etc
+//Column sets widget by series
+//If we want to set widget by side we have to use Row
+///project Structure of Flutter
+//.dart tool : It's dart's own structure
+//.idea : It's the configuration of jet beans
+//android file: In this folder we can do all work related to androids
+//We run program in debug mode. It manages by flutter SDK
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
+        title: Text('Home'),
+        leading: Icon(Icons.home, color: Colors.yellow, size: 32,),
+      ),
+      body: Column(
+        children: [
+          Text('Home screen', style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+          ),
+          ),
+          Text('Rifath', style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+          ),
+          ),
+          Text('Hello World'),
+          Icon(Icons.access_alarm_outlined),
+        ],
+      ),
+    );
+  }
+
+
+ListView.builder(
+itemCount: 5,
+itemBuilder:(BuildContext context,int index){
+return ListTile(
+title:Text('item $index'),
+);
+};
+)

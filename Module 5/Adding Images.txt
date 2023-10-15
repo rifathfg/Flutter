@@ -1,0 +1,56 @@
+//For adding image there's a widget called image.asset and image.network
+//To use image from local we have to register the image as asset in pubspec.yaml. This is the register point
+//To fit the image we can use a property called fit : BoxFit.contain, it also has many properties such as Cover, fill,scaledown
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text('Home'),
+        leading: Icon(Icons.home, color: Colors.white, size: 32,),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Hello ChunLi ',style: TextStyle(
+                color: Colors.white
+              ),),
+              Text('And Spidey ', style: TextStyle(
+                color: Colors.white
+              ),),
+            ],
+          ),
+          Image.asset('images/ChunLi.png', width: 450, height: 150, fit : BoxFit.contain),
+          Image.network('https://images.unsplash.com/photo-1505925456693-124134d66749?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          width: 200, height: 100,
+              fit: BoxFit.cover
+          )
+        ],
+      )
+    );
+  }
+}

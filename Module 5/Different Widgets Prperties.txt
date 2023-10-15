@@ -1,0 +1,52 @@
+//debugShowCheckedModeBanner: false, It removes the banner at the corner
+//Changing background color: backgroundColor: Colors.greenAccent. It can also be used for appbar
+//To change the position of appbar title to center: centerTitle: true , which expects boolean
+//If we just hover over our cursor to a property we can see what it can do
+//To apply an icon at the begining of an appbar we use: leading: Icon(Icons.home), here icon is a widget and icons is a class
+//To change color of icon we have to colors class inside icon widget: color: Colors.yellow ,similarly we have to use size: to change size
+//To do any kind of design of text there's property called style. Then use TextStyle class.
+//Inside TextStyle class we can do various modification to text
+//TextStyle is not a widget but a diagnosable property which helps us to bring a shape to our widget
+//To use multiple widget we have two properties. 1) Row, 2) Column
+
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
+        title: Text('Home'),
+        leading: Icon(Icons.home, color: Colors.yellow, size: 32,),
+      ),
+      body: Center(
+        child: Text('Home screen', style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold
+        ),
+        ),
+      ),
+    );
+  }
+
+}

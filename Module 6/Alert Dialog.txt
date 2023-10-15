@@ -1,0 +1,59 @@
+//Alert Dialog
+//For closing Alert Dialog we use navigator property
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeActivity()
+    );
+  }
+}
+
+class HomeActivity extends StatelessWidget{
+  const HomeActivity({super.key});
+
+  MySnackBar(message,context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
+
+  //creating Alert Dialog
+  MyAlertDialog(context){
+    return showDialog(context: context, builder: (BuildContext){
+      return Expanded(
+        child: AlertDialog(
+          title:Text("Wrong !"),
+          content: Text("Do you want to delete?"),
+          actions: [
+            TextButton(onPressed: (){}, child: Text("Yes SIR!")),
+            TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("nO SiR!")),
+          ],
+        )
+      );
+    }
+    );
+  }
+
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My App"),
+      ),
+      body: Center(
+        child:  ElevatedButton(child: Text("click ME"),onPressed: (){MyAlertDialog(context);},),
+
+      )
+    );
+  }
+}

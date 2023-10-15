@@ -1,0 +1,26 @@
+Explainations of module 5:
+//Package is flutter,Material.dart is a design pattern. Design pattern has two types. 1 property, 2 Material
+//Material is for google and property is for ios. By default we follow material
+//runApp is public function
+//Widget is a component that will be visible to ui interface
+//Text is a class that extends another class who's name is StatelessWidget. Stateless Widget is also a class that extends widget
+//Text will take hello world as constructor
+//Text can;t behave like an app
+///Text('Hello world')
+//MaterialApp is the full configuration of an app. For example: Color, Text language, Text style, font size etc.
+//materialApp is a parent widget or class. It has a lot of parameter or constructor
+//home is a property of MaterialApp. It is a optional named parameter
+//Now showing Text inside home
+//Scaffold is another class which is used to bring different configurations to flutter app. It has a body. It will make phonescreen white
+//Scaffold is a screen configuration class and provides a basic layout
+//Center is for showing screen at center
+//child is a parameter constructor
+//Creating a widget
+//Widget has a extended version which is called stateless widget it has a build function which performs return
+//It returns widget
+//Stateless Widget can directly detect any changes in the code by  pressing constrol s. It is called hot reload
+//title is the name of the app. But it's not logo title.
+//hot restart: ctl + shift + \
+//At first the banner at the corner of the screen runs at debug mode
+//to remove banner we have to use debugShowCheckedModeBanner: false. By default it's true
+//Stateless Widget has an unimplemented method

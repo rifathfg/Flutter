@@ -1,0 +1,38 @@
+//Row and Container. Row is x axis since it's Horizontal
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text('Spider App'),
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(height: 200, width: 150, child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6cs1Yc7yCKImFq5QoPnigdHcHdvnfbYzGQ&usqp=CAU")),
+          Container(height: 200, width: 150, child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSe4JvK4yL9yjr8t_0QmY91MGgmvzPvTC5_w&usqp=CAU")),
+        ],
+      ),
+    );
+  }
+}

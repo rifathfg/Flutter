@@ -1,0 +1,45 @@
+// In container we can give margin using margin: EdgeInsets.all(30) to give margin in all site
+// We can use margin: EdgeInsets.fromLTRB() to set different values on each side of the margin
+//Padding works same as margin
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text('Home'),
+      ),
+      body: Container(
+        height: 200,
+        width: 250,
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(60),
+        padding: EdgeInsets.all(60),
+        decoration: BoxDecoration(
+          color: Colors.greenAccent,
+              border: Border.all(color: Colors.black, width: 6)
+        ),
+        child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGmV7GTXxx-UcoQD_70p7fUOpyFF6pEmdgbA&usqp=CAU"),
+      )
+    );
+  }
+}

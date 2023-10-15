@@ -1,0 +1,65 @@
+//We can put Column inside a Column and we also can put Row outside of Column
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+      title: 'Ostad App',
+    );
+  }
+}
+
+//Creating Screen
+class HomeScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
+        title: Text('Home'),
+        leading: Icon(Icons.home, color: Colors.yellow, size: 32,),
+      ),
+      body: const Column(children:[
+        Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Hello '),
+              Text('World '),
+              Text('How '),
+              Text('Are '),
+              Text('You '),
+            ],
+          )
+        ],
+      ),
+        Row(
+          children: [
+            Text('Me '),
+            Text('I '),
+            Text('And '),
+            Text('You '),
+          ],
+        )
+        ],
+      ),
+    );
+  }
+}

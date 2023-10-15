@@ -1,0 +1,102 @@
+/* Navigation means moving from one page to another
+ While moving we have to write extra code but we won't have to while coming back
+ Navigation is not limited to one page to another, we can also pass some data or some property during navigation
+ All activities are same as home activity
+ To Navigate from one activity to another activity in flutter, there's a property called navigator
+ In navigator there's a property called push which we can call and this method will contain 2 parameter, context and route.
+ Context parameter is inside build method by default. Route means destination. The route will be a function called materialpageroute, this will have builder property
+ We will create anonymous function inside builder property. We will specify where/which activity we wanna go inside this anonymous function.
+ Flutter will generate a back navigation by default.
+*/
+//Data Navigation:
+//First, massage will pass from homeactivity class and get into activity 1 class, here it will first get inside constructor and then we will find it inside a variable
+//From that variable we are showing it in the tile of app bar
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+main(){
+  runApp(const MyApp()); //Application
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeActivity()
+    );
+  }
+}
+
+class HomeActivity extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1("This is from home to activity 1"))); //This string will pass to Activity 1 constructor
+          }, child: Text("Go Activity One")),
+
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is from home to activity 2")));
+          }, child: Text("Go Activity Two"))
+        ],
+      ),
+    );
+  }
+}
+
+class Activity1 extends StatelessWidget{
+  //Passing a massage as data navigation
+  String msg;
+  Activity1(
+      this.msg,
+      {super.key}
+      ); //Constructor
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(msg),
+      ),
+      body: Center(
+        child: ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is from activity 1 to activity 2")));
+        },child: Text("Go Aactivity Two"),
+        ),
+      )
+    );
+  }
+}
+
+class Activity2 extends StatelessWidget{
+  //Passing a massage as data navigation
+  String msg;
+  Activity2(
+      this.msg,
+      {super.key}
+      ); //Constructor
+
+  @override
+  Widget build(BuildContext context){
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(msg),
+      ),
+        body: Center(
+          child: ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1("This is from activity 2 to activity 1")));
+          },child: Text("Go Aactivity One"),
+          ),
+        )
+    );
+  }
+}
